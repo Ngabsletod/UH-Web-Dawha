@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        select,
+        input[type="text"],
+        button {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        select {
+            width: 200px;
+        }
+
+        button {
+            background-color: tomato;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Ini Adalah Soal 3</h1>
+    
+    <label for="countrySelect">Pilih negara:</label>
+    <select id="countrySelect" onchange="tampilkanIndeks()">
+        <option value="-1">Pilih negara</option>
+        <!-- Menambahkan opsi negara dari 1 hingga 10 -->
+        <script>
+            let countries = [
+                "Indonesia",
+                "United States",
+                "United Kingdom",
+                "Canada",
+                "Australia",
+                "Japan",
+                "Germany",
+                "France",
+                "Brazil",
+                "South Africa"
+            ];
+
+            // Menambahkan opsi negara dari 1 hingga 10 ke dalam dropdown
+            for (let i = 0; i < countries.length; i++) {
+                document.write(`<option value="${i + 1}">${countries[i]}</option>`);
+            }
+        </script>
+    </select>
+
+    <br><br>
+    <label for="newCountryInput">Tambahkan negara baru:</label>
+    <input type="text" id="newCountryInput">
+    <button onclick="tambahNegara()">Tambahkan</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function tampilkanIndeks() {
+            let selectElement = document.getElementById("countrySelect");
+            let selectedIndex = selectElement.value;
+
+            if (selectedIndex !== "-1") {
+                document.getElementById("result").innerHTML = `<p>Indeks negara yang dipilih adalah: ${selectedIndex}</p>`;
+            } else {
+                document.getElementById("result").innerHTML = ""; // Kosongkan hasil jika opsi default dipilih
+            }
+        }
+
+        function tambahNegara() {
+            let newCountry = document.getElementById("newCountryInput").value;
+            if (newCountry !== "") {
+                countries.push(newCountry);
+                document.getElementById("result").innerHTML = `<p>Negara "${newCountry}" berhasil ditambahkan.</p>`;
+                refreshDropdown();
+            } else {
+                document.getElementById("result").innerHTML = "<p>Masukkan nama negara terlebih dahulu.</p>";
+            }
+        }
+
+        function refreshDropdown() {
+            let selectElement = document.getElementById("countrySelect");
+            selectElement.innerHTML = "<option value='-1'>Pilih negara</option>";
+
+            for (let i = 0; i < countries.length; i++) {
+                selectElement.innerHTML += `<option value="${i + 1}">${countries[i]}</option>`;
+            }
+        }
+    </script>
+</body>
+</html>

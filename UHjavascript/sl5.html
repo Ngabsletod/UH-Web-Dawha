@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 20s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ini Adalah Soal 5</h1>
+    
+    <h3 id="changeText" onclick="ubahKalimat()">Saya merasa belum bisa belajar JavaScript</h3>
+
+    <script>
+        function ubahKalimat() {
+            let textElement = document.getElementById("changeText");
+
+            if (textElement.innerText === "Saya merasa belum bisa belajar JavaScript") {
+                textElement.innerText = "Ternyata saya masih kurang berlatih belajar JavaScript";
+                textElement.style.backgroundColor = "lightgreen";
+            } else {
+                textElement.innerText = "Saya merasa belum bisa belajar JavaScript";
+                textElement.style.backgroundColor = "#fff";
+            }
+        }
+    </script>
+</body>
+</html>

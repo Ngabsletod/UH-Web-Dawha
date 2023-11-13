@@ -1,0 +1,32 @@
+.div1 {
+    width: 1000px;
+    min-height: 200px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    margin: 20px;
+    background-color: tomato;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px 0 rgb(129, 126, 126);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}

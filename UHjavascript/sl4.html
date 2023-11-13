@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #444;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: tomato;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Ini Adalah Soal 4</h1>
+    <h2>Cek Kepribadian Berdasarkan Golongan Darah</h2>
+
+    <label for="bloodTypeInput">Apa golongan darah kamu? (A, B, AB, O)</label>
+    <input type="text" id="bloodTypeInput">
+    <button onclick="cekKepribadian()">Cek</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function cekKepribadian() {
+            let golonganDarah = document.getElementById("bloodTypeInput").value.toUpperCase();
+
+            let resultElement = document.getElementById("result");
+            let pesan = "";
+
+            switch (golonganDarah) {
+                case 'A':
+                    pesan = "Identik dengan sifatnya yang toroganisir, kritis, tenang dalam menghadapi masalah.";
+                    break;
+                case 'B':
+                    pesan = "Semangat yang tinggi, aktif, kreatif, dan selalu ingin tahu.";
+                    break;
+                case 'AB':
+                    pesan = "Memiliki karakter yang kritis, rasional, bertanggung jawab, suka menolong, dan mudah beradaptasi.";
+                    break;
+                case 'O':
+                    pesan = "Sikapnya yang mudah beradaptasi dengan lingkungan baru atau easy-going.";
+                    break;
+                default:
+                    pesan = "Maaf, golongan darah yang dimasukkan tidak valid. Mohon masukkan golongan darah yang benar (A, B, AB, O).";
+                    break;
+            }
+
+            resultElement.innerHTML = `<p>${pesan}</p>`;
+        }
+    </script>
+</body>
+</html>
